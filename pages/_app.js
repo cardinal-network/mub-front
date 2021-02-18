@@ -6,7 +6,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     border: 0;
     box-sizing: border-box;
-    background: #222;
+    background: #222; 
   }
   *{
     -webkit-transition: 0.25s;
