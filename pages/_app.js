@@ -6,23 +6,29 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     border: 0;
     box-sizing: border-box;
-    background:#777;
+    background: #222;
+  }
+  *{
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -o-transition: 0.25s;
+    -ms-transition: 0.25s;
+    transition: 0.25s;
+    &:hover {
+      -webkit-transition: 0.25s;
+      -moz-transition: 0.25s;
+      -o-transition: 0.25s;
+      -ms-transition: 0.25s;
+      transition: 0.25s;
+    }
   }
   button, a{
-    cursor:pointer;
-    outline:none;
-    -webkit-transition: 0.5s;
-    -moz-transition: 0.5s;
-    -o-transition: 0.5s;
-    -ms-transition: 0.5s;
-    transition: 0.5s;
-    &:hover {
-      -webkit-transition: 0.5s;
-      -moz-transition: 0.5s;
-      -o-transition: 0.5s;
-      -ms-transition: 0.5s;
-      transition: 0.5s;
-    }
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+  }
+  header{
+    background: #333;
   }
   .container {
     padding: 0 4rem;

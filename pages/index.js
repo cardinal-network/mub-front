@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Header from '../components/Header';
+import NewsNav from '../components/NewsNav';
 
 const Title = styled.h1`
   font-size: 50px;
@@ -10,12 +11,7 @@ export default function Home() {
   return (
     <>
     <Header/>
-    <main>
-      <div className='container'>
-        <h1>NextJS</h1>
-        <h2>Subtitle de NextJs</h2>
-      </div>
-    </main>
+    <NewsNav/>
     </>
   )
 }
