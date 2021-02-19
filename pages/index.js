@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Header from '../components/Header';
-import NewsNav from '../components/NewsNav';
+import NewsMainPage from '../components/NewsMainPage';
 
 const Title = styled.h1`
   font-size: 20px;
@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
     <Header/>
-    <NewsNav/>
+    <NewsMainPage/>
     </>
   )
 }
