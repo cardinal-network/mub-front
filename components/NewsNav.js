@@ -14,7 +14,7 @@ const NavUl = styled.ul`
 
 const NavLi = styled.li`
   display: flex;
-  padding:15px;
+  padding: 15px 30px 15px 0;
   cursor:pointer;
   a {
     color:#fff;

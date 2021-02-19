@@ -31,7 +31,9 @@ const GlobalStyle = createGlobalStyle`
     background: #333;
   }
   .container {
+    max-width: 1900px;
     padding: 0 4rem;
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
