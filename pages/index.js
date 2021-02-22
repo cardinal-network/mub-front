@@ -1,17 +1,23 @@
-import styled from 'styled-components';
 import Header from '../components/Header';
-import NewsMainPage from '../components/NewsMainPage';
+import NewsMainPageContainer from '../components/NewsMainPageContainer';
 
-const Title = styled.h1`
-  font-size: 50px;
-  color: ${({ theme }) => theme.colors.primary};
-`
-
-export default function Home() {
+export default function Home({ posts }) {
   return (
     <>
-    <Header/>
-    <NewsMainPage/>
+      <Header />
+      <NewsMainPageContainer posts={posts}/>
     </>
   )
+}
+
+export const getStaticProps = async () => {
+  const res = await fetch(`https://mubdmn-dev.crdps.xyz/wp-json/wp/v2/posts/?per_page=10`);
+  const posts = await res.json();
+  
+  return {
+    props: {
+      posts
+    }
+  }
+
 }

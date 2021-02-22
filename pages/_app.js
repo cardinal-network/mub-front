@@ -6,9 +6,10 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     border: 0;
     box-sizing: border-box;
-    background: #222;
+    background: #555;
   }
   *{
+    margin: 0;
     -webkit-transition: 0.25s;
     -moz-transition: 0.25s;
     -o-transition: 0.25s;
@@ -46,6 +47,12 @@ const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  .grid-mansonry{
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(550px,1fr));
+    grid-auto-rows: 20px;
   }
 `
 
