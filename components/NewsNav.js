@@ -33,7 +33,7 @@ const NavLi = styled.li`
 export default function NewsNav() {
   return (
     <nav>
-      <div className='container'>
+      <div className='container align-center'>
         <NavUl>
           <NavLi><Link href='/'>First page</Link></NavLi>
           <NavLi><Link href='/articles'>Articles</Link></NavLi>

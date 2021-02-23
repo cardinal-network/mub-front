@@ -6,6 +6,7 @@ const AdContainer = styled.div`
   width:470px;
   height: ${props => `${props.Height}`}px;
   border-radius: 6px;
+  margin: ${props => `${props.margins}`};
   padding: 10px;
   text-align:center;
   &::before {
