@@ -34,7 +34,7 @@ const NavUlDropDown = styled.ul`
 export default function Nav() {
   return (
     <nav>
-      <div className='container'>
+      <div className='container align-center'>
         <Image
           src="/mub-music-logo.png"
           alt="Mub Music Logo"
