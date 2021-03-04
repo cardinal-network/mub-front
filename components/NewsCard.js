@@ -21,6 +21,7 @@ const NewsCardImageArea = styled.div`
 
 const NewsCardTextArea = styled.div`
   width:100%;
+  min-height: 145px;
   background:#333;
   color:#fff;
   border-bottom-left-radius:6px;
@@ -42,18 +43,22 @@ const NewsCardTextArea = styled.div`
 export default function NewsCard( { post } ) {
   return (
     <NewsCardArea id='news-card'>
-      <NewsCardImageArea>
-        <Image
-          src='https://exame.com/wp-content/uploads/2021/02/boeings-parados-em-aeroporto_reuters.jpg'
-          alt={post.title.rendered}
-          width={650}
-          height={350}
-        />
-      </NewsCardImageArea>
-      <NewsCardTextArea>
-        <h3>Categoria</h3>
-        <h4>{post.title.rendered}</h4>
-      </NewsCardTextArea>
+        <Link href='/news/[slug]' as={`/news/${post.slug}`}>
+          <a>
+            <NewsCardImageArea>
+              <Image
+                src='https://exame.com/wp-content/uploads/2021/02/boeings-parados-em-aeroporto_reuters.jpg'
+                alt={post.title.rendered}
+                width={600}
+                height={300}
+              />
+            </NewsCardImageArea>
+            <NewsCardTextArea>
+              <h3>Categoria</h3>
+              <h4>{post.title.rendered}</h4>
+            </NewsCardTextArea>
+          </a>
+        </Link>
     </NewsCardArea>
   )
 }

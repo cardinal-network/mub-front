@@ -7,6 +7,7 @@ const MoreButton = styled.button`
   border-radius: 3px;
   border: 0;
   padding: 5px 8px;
+  display: flex;
   &:hover {
     background: ${({ theme }) => theme.colors.primary};
     color: black;

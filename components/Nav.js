@@ -34,30 +34,32 @@ const NavUlDropDown = styled.ul`
 export default function Nav() {
   return (
     <nav>
-      <div className='container align-center'>
-        <Image
-          src="/mub-music-logo.png"
-          alt="Mub Music Logo"
-          width={156}
-          height={30}
-        />
-        <NavUl>
-          <NavLi><Link href='/'>Home</Link></NavLi>
-          <NavLi>Categories
-            <NavUlDropDown>
-              <li><Link href='/'>Cat1</Link></li>
-              <li><Link href='/'>Cat2</Link></li>
-              <li><Link href='/'>Cat3</Link></li>
-              <li><Link href='/'>Cat4</Link></li>
-            </NavUlDropDown>
-          </NavLi>
-          <NavLi><Link href='/news'>News</Link></NavLi>
-          <NavLi><Link href='/signin'><PermIdentity/></Link></NavLi>
-          <NavLi><Link href='/'><Search/></Link></NavLi>
-          <NavLi><Link href='/signup'><PrimaryButton>Sign Up</PrimaryButton></Link></NavLi>
-          <NavLi><Link href='https://www.facebook.com/'><Facebook/></Link></NavLi>
-          <NavLi><Link href='https://www.instagram.com/'><Instagram/></Link></NavLi>
-        </NavUl>
+      <div className="container">
+        <div className="row align-center">
+          <Image
+            src="/mub-music-logo.png"
+            alt="Mub Music Logo"
+            width={156}
+            height={30}
+          />
+          <NavUl>
+            <NavLi><Link href='/'>Home</Link></NavLi>
+            <NavLi>Categories
+              <NavUlDropDown>
+                <li><Link href='/'>Cat1</Link></li>
+                <li><Link href='/'>Cat2</Link></li>
+                <li><Link href='/'>Cat3</Link></li>
+                <li><Link href='/'>Cat4</Link></li>
+              </NavUlDropDown>
+            </NavLi>
+            <NavLi><Link href='/news'>News</Link></NavLi>
+            <NavLi><Link href='/signin'><PermIdentity/></Link></NavLi>
+            <NavLi><Link href='/'><Search/></Link></NavLi>
+            <NavLi><Link href='/signup'><PrimaryButton>Sign Up</PrimaryButton></Link></NavLi>
+            <NavLi><Link href='https://www.facebook.com/'><Facebook/></Link></NavLi>
+            <NavLi><Link href='https://www.instagram.com/'><Instagram/></Link></NavLi>
+          </NavUl>
+        </div>
       </div>
     </nav>
   )
