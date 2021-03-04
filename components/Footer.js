@@ -22,27 +22,31 @@ export default function Footer() {
   return (
     <footer>
         <div className="container">
-            <FooterColumn>
-                <h4>Cat1</h4>
-            </FooterColumn>
-            <FooterColumn>
-                <h4>Cat2</h4>
-            </FooterColumn>
-            <FooterColumn>
-                <h4>Cat3</h4>
-            </FooterColumn>
-            <FooterColumn>
-                <h4>Cat4</h4>
-            </FooterColumn>
-        </div>
-        <FooterCopyRight>
-            <div className="container">
+            <div className="row">
                 <FooterColumn>
                     <h4>Cat1</h4>
                 </FooterColumn>
                 <FooterColumn>
                     <h4>Cat2</h4>
                 </FooterColumn>
+                <FooterColumn>
+                    <h4>Cat3</h4>
+                </FooterColumn>
+                <FooterColumn>
+                    <h4>Cat4</h4>
+                </FooterColumn>
+            </div>
+        </div>
+        <FooterCopyRight>
+            <div className="container">
+                <div className="row">
+                    <FooterColumn>
+                        <h4>Cat1</h4>
+                    </FooterColumn>
+                    <FooterColumn>
+                        <h4>Cat2</h4>
+                    </FooterColumn>
+                </div>
             </div>
         </FooterCopyRight>
     </footer>

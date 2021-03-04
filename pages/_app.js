@@ -7,6 +7,7 @@ const GlobalStyle = createGlobalStyle`
     border: 0;
     box-sizing: border-box;
     background: #222;
+    color:#fff;
     font-family: 'Roboto', sans-serif;
   }
   *{
@@ -32,8 +33,19 @@ const GlobalStyle = createGlobalStyle`
   header{
     background: #333;
   }
-  aside{
+  article{
+    flex: 74%;
     background: #333;
+    margin: 40px 1% 40px 0;
+    border-radius: 6px;
+  }
+  aside{
+    flex: 25%;
+    background: #333;
+    margin: 40px 0;
+  }
+  image{
+    width: 100%;
   }
   footer{
     background: #333;
@@ -52,6 +64,8 @@ const GlobalStyle = createGlobalStyle`
     max-width: 1900px;
     padding: 0 4rem;
     margin: 0 auto;
+  }
+  .row{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
