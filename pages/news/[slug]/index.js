@@ -130,8 +130,8 @@ export default function post({ postData }) {
   )
 }
 
-export async function getServerSideProps(context) {
-  const res = await fetch(`https://mubdmn-dev.crdps.xyz/wp-json/wp/v2/posts/?slug=${ context.params.slug }`);
+export async function getStaticProps(context) {
+  const res = await fetch(`https://mubdmn-dev.crdps.xyz/wp-json/wp/v2/posts/?slug=${context.params.slug}`);
   const postJson = await res.json();
   
   return {
@@ -140,4 +140,17 @@ export async function getServerSideProps(context) {
     }
   }
 
+}
+
+export async function getStaticPaths() {
+  const res = await fetch(`https://mubdmn-dev.crdps.xyz/wp-json/wp/v2/posts/`)
+  const posts = await res.json()
+
+  const slugs = posts.map((post) => post.slug)
+  const paths = slugs.map((slug) => ({ params: { slug: slug.toString() } }))
+
+  return {
+    paths,
+    fallback: false,
+  }
 }

@@ -43,8 +43,7 @@ const NewsCardTextArea = styled.div`
 export default function NewsCard( { post } ) {
   return (
     <NewsCardArea id='news-card'>
-        <Link href='/news/[slug]' as={`/news/${post.slug}`}>
-          <a>
+          <a href={`/news/${post.slug}`}>
             <NewsCardImageArea>
               <Image
                 src='https://exame.com/wp-content/uploads/2021/02/boeings-parados-em-aeroporto_reuters.jpg'
@@ -58,7 +57,6 @@ export default function NewsCard( { post } ) {
               <h4>{post.title.rendered}</h4>
             </NewsCardTextArea>
           </a>
-        </Link>
     </NewsCardArea>
   )
 }
