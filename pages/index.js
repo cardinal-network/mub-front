@@ -8,6 +8,8 @@ export default function Home({ posts }) {
     <>
       <Head>
         <title>Mub Music | The World's biggest music catalog</title>
+        <meta name="viewport" content="width-device-width, initial-scale=1.0" />
+        <meta name="description" content="The World's biggest music catalog" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Mub Music | The World's biggest music catalog" key="title" />
         <meta property="og:description" content="The World's biggest music catalog. ➤ Musical products, Musical Instruments, Music News. ➤ Get in and find your sound!" />

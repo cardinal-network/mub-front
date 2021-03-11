@@ -84,9 +84,11 @@ export default function post({ postData }) {
     <>
       <Head>
         <title>{ postData.title.rendered } | Mub Music</title>
+        <meta name="viewport" content="width-device-width, initial-scale=1.0" />
+        <meta name="description" content="The World's biggest music catalog" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Mub Music | The World's biggest music catalog" key="title" />
-        <meta property="og:description" content="The World's biggest music catalog. Musical products, Musical Instruments, Music News. Get in and find your sound!" />
+        <meta property="og:description" content="The World's biggest music catalog. ➤ Musical products, Musical Instruments, Music News. ➤ Get in and find your sound!" />
         <meta property="og:url" content="https://mubmusic.com/" />
         <meta property="og:site_name" content="Mub Music" />
         <meta property="og:image" content="https://s0.wp.com/i/blank.jpg" />

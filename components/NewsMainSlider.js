@@ -12,6 +12,9 @@ const SliderArea = styled.div`
   flex:75%;
   min-height: 500px;
   border-radius:6px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `
 
 const SliderColumn = styled.div`
@@ -19,6 +22,10 @@ const SliderColumn = styled.div`
   flex-direction: column;
   flex: 50%;
   position: relative;
+  @media (min-width: 576px) and (max-width: 768px) {
+    flex: 100%;
+    flex-direction: row;
+  }
 `
 
 const OverlayCard = styled.div`
@@ -35,10 +42,11 @@ const OverlayCard = styled.div`
 `
 
 const OverlayCardTitle = styled.div`
-  padding: 25px 35px;
+  padding: 60px 35px 30px 35px;
   position: relative;
   z-index: 2;
-  background:rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0);
+  background-image: linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,0.7));
   h3{
     margin-bottom:10px;
     font-size:12px;
