@@ -15,7 +15,7 @@ export default function NewsMainPageContainer({ posts }) {
         <div className="row">
           <div className="grid-mansonry">
             {posts.map((post) => (
-                <NewsCard post={post} />
+                <NewsCard post={post} key={post}/>
               )
             )}
           </div>

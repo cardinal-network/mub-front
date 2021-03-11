@@ -3,6 +3,81 @@ import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
 import Link from 'next/link';
 import Image from 'next/image';
+import styled from 'styled-components';
+import { H1, H2, H3 } from '../../../components/Titles';
+import Breadcrumb from '../../../components/Breadcrumb'
+
+const PostFeatureImage = styled.div`
+  display: block;
+  position: relative;
+  img{
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+  }
+`
+
+const PostFeatureImageText = styled.div`
+  padding: 70px 3% 30px 3%;
+  position: absolute;
+  bottom: 3px;
+  min-width: 94%;
+  background-color: rgba(0,0,0,0);
+  background-image: linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,1));
+`
+
+const PostFeatureImageCategoryButton = styled.div`
+  padding: 10px 15px;
+  position: absolute;
+  top: 30px;
+  left: 3%;
+  border-radius: 4px;
+  background-color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.secondary};
+  font-size: 14px;
+  a{
+    font-weight: 700;
+    color: ${({ theme }) => theme.colors.secondary};
+  }
+`
+
+const PostText = styled.div`
+  padding: 20px 40px;
+  text-align: justify;
+  figure {
+    margin: 40px auto;
+    img{
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+    }
+    figcaption {
+      margin: -4px 0 0 0;
+      padding: 20px 0;
+      background: #444;
+      color: #aaa;
+      font-size: 16px;
+      text-align: center;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+    }
+  }
+  p{
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 30px;
+    margin: 20px 0;
+  }
+  a{
+    font-weight: 700;
+    color: #fff;
+    &:hover {
+      color: ${({ theme }) => theme.colors.primary};
+    }
+  }
+  iframe {
+    margin: 0 auto;
+    display: block;
+  }
+`
 
 export default function post({ postData }) {
   return (
@@ -24,13 +99,27 @@ export default function post({ postData }) {
         <div className="container">
           <div className="row">
             <article>
-              <Image
-                src='https://exame.com/wp-content/uploads/2021/02/boeings-parados-em-aeroporto_reuters.jpg'
-                alt={postData.title.rendered}
-                width={1300}
-                height={460}
-              />
-              <h1>{ postData.title.rendered }</h1>
+              <PostFeatureImage>
+                <Image
+                  src='https://exame.com/wp-content/uploads/2021/02/boeings-parados-em-aeroporto_reuters.jpg'
+                  alt={postData.title.rendered}
+                  width={1440}
+                  height={650}
+                />
+                <PostFeatureImageCategoryButton><a href="/">Categoria</a></PostFeatureImageCategoryButton>
+                <PostFeatureImageText>
+                  <H1 dangerouslySetInnerHTML={{ __html: postData.title.rendered }} fontSize={32} fontWeight={700} color={"#fff"} marginBottom={10}/>
+                  <H2 dangerouslySetInnerHTML={{ __html: postData.excerpt.rendered }} fontSize={18} fontWeight={400} color={"#fff"} marginBottom={15}/>
+                  <Breadcrumb>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/brasil">Music Bussines</a></li>
+                    <li>{postData.title.rendered}</li>
+                  </Breadcrumb>
+                </PostFeatureImageText>
+              </PostFeatureImage>
+              <div className="row">
+                <PostText dangerouslySetInnerHTML={{ __html: postData.content.rendered }}/>
+              </div>
             </article>
             <aside>AAA BBB CCC</aside>
           </div>
