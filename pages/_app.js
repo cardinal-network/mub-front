@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
     background: #222;
     color:#fff;
     font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
   }
   *{
     margin: 0;
@@ -68,7 +69,7 @@ const GlobalStyle = createGlobalStyle`
       padding: 0 1.5rem;
     }
     @media (max-width: 1100px){
-      padding: 0 0 0 1rem;
+      padding: 0 1rem;
     }
   }
   .row{
@@ -88,14 +89,17 @@ const GlobalStyle = createGlobalStyle`
     @media (min-width: 768px) and (max-width: 1100px) {
       column-count: 3;
       flex: 100%;
+      margin: 20px 0;
     }
     @media (min-width: 576px) and (max-width: 768px) {
       column-count: 2;
       flex: 100%;
+      margin: 20px 0;
     }
     @media (max-width: 576px) {
       column-count: 1;
       flex: 100%;
+      margin: 20px 0;
     }
   }
 `
