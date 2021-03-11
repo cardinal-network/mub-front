@@ -64,6 +64,12 @@ const GlobalStyle = createGlobalStyle`
     max-width: 1900px;
     padding: 0 4rem;
     margin: 0 auto;
+    @media (min-width: 1100px) and (max-width: 1360px) {
+      padding: 0 1.5rem;
+    }
+    @media (max-width: 1100px){
+      padding: 0 0 0 1rem;
+    }
   }
   .row{
     display: flex;
@@ -75,6 +81,22 @@ const GlobalStyle = createGlobalStyle`
     margin: 20px 20px 20px 0;
     column-count: 3;
     column-gap: 1em;
+    @media (min-width: 1100px) and (max-width: 1360px) {
+      column-count: 2;
+      flex: 75%;
+    }
+    @media (min-width: 768px) and (max-width: 1100px) {
+      column-count: 3;
+      flex: 100%;
+    }
+    @media (min-width: 576px) and (max-width: 768px) {
+      column-count: 2;
+      flex: 100%;
+    }
+    @media (max-width: 576px) {
+      column-count: 1;
+      flex: 100%;
+    }
   }
 `
 
