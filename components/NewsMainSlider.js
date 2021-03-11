@@ -12,6 +12,9 @@ const SliderArea = styled.div`
   flex:75%;
   min-height: 500px;
   border-radius:6px;
+  @media (max-width: 1100px){
+    margin: 0;
+  }
   @media (max-width: 768px) {
     flex-direction: column;
   }
