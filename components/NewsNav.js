@@ -3,6 +3,13 @@ import Link from 'next/link';
 import { MoreHoriz } from '@material-ui/icons';
 import MoreButton from '../components/MoreButton';
 
+const NewsNavArea = styled.nav`
+  position: relative;
+  @media (max-width: 768px) {
+    display:none;
+  }
+`
+
 const NavUl = styled.ul`
   display: flex;
   flex-direction: row;
@@ -32,7 +39,7 @@ const NavLi = styled.li`
 
 export default function NewsNav() {
   return (
-    <nav>
+    <NewsNavArea>
       <div className="row align-center">
         <NavUl>
           <NavLi><Link href='/'>First page</Link></NavLi>
@@ -45,6 +52,6 @@ export default function NewsNav() {
         </NavUl>
         <MoreButton><MoreHoriz/></MoreButton>
       </div>
-    </nav>
+    </NewsNavArea>
   )
 }

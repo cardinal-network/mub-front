@@ -39,11 +39,18 @@ const GlobalStyle = createGlobalStyle`
     background: #333;
     margin: 40px 1% 40px 0;
     border-radius: 6px;
+    @media (max-width: 1100px){
+      flex: 1;
+      width: 100%;
+    }
   }
   aside{
     flex: 25%;
     background: #333;
     margin: 40px 0;
+    @media (max-width: 1100px){
+      display: none;
+    }
   }
   image{
     width: 100%;

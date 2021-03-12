@@ -12,6 +12,7 @@ export const H2 = styled.h2`
   color: ${props => `${props.color}`};
   font-weight: ${props => `${props.fontWeight}`};
   margin-bottom: ${props => `${props.marginBottom}`}px;
+  line-height: ${props => `${props.fontSize + 8}`}px;
 `;
 
 export const H3 = styled.h3`
