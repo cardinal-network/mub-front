@@ -23,6 +23,16 @@ const PostFeatureImageText = styled.div`
   min-width: 94%;
   background-color: rgba(0,0,0,0);
   background-image: linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,1));
+  @media (max-width: 768px) {
+    position: relative;
+    padding: 25px 30px 0 30px;
+    background-image: none;
+    min-width: auto;
+    h2{
+      font-size: 15.5px;
+      color: #bbb;
+    }
+  }
 `
 
 const PostFeatureImageCategoryButton = styled.div`
@@ -37,6 +47,15 @@ const PostFeatureImageCategoryButton = styled.div`
   a{
     font-weight: 700;
     color: ${({ theme }) => theme.colors.secondary};
+  }
+  @media (max-width: 768px) {
+    font-size: 12px;
+    left: 40px;
+  }
+  @media (max-width: 400px) {
+    top: 0;
+    left: 0;
+    border-radius: 0;
   }
 `
 
@@ -74,8 +93,43 @@ const PostText = styled.div`
     }
   }
   iframe {
+    max-width: 100%;
     margin: 0 auto;
     display: block;
+  }
+  @media (max-width: 768px) {
+    padding: 0;
+    width: 100%;
+    p{
+      padding: 0 30px;
+    }
+    figure {
+      max-width: 85%;
+      img{
+        width: 100%;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+      }
+    }
+  }
+  @media (max-width: 576px) {
+    figure {
+      max-width: 100%;
+      img{
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+      figcaption {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+  }
+  @media (max-width: 400px) {
+    p{
+      font-size: 16px;
+    }
   }
 `
 

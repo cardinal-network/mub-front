@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 import PrimaryButton from '../components/PrimaryButton';
-import { Facebook, Instagram, PermIdentity, Search } from '@material-ui/icons';
+import { Facebook, Instagram, PermIdentity, Search, Menu } from '@material-ui/icons';
 import Image from 'next/image';
 
 const NavUl = styled.ul`
@@ -24,6 +24,27 @@ const NavLi = styled.li`
   }
   &:hover {
     color:${({ theme }) => theme.colors.primary};
+  }
+  @media (max-width: 768px) {
+    display: none;
+  }
+`
+
+const NavLiMobileMenuIcon = styled.li`
+  display: none;
+  padding: 15px 0 15px 30px;
+  cursor:pointer;
+  a {
+    color:#fff;
+    &:hover {
+      color:${({ theme }) => theme.colors.primary};
+    }
+  }
+  &:hover {
+    color:${({ theme }) => theme.colors.primary};
+  }
+  @media (max-width: 768px) {
+    display: flex;
   }
 `
 
@@ -58,6 +79,7 @@ export default function Nav() {
             <NavLi><Link href='/signup'><PrimaryButton>Sign Up</PrimaryButton></Link></NavLi>
             <NavLi><Link href='https://www.facebook.com/'><Facebook/></Link></NavLi>
             <NavLi><Link href='https://www.instagram.com/'><Instagram/></Link></NavLi>
+            <NavLiMobileMenuIcon><Link href='/'><Menu/></Link></NavLiMobileMenuIcon>
           </NavUl>
         </div>
       </div>
