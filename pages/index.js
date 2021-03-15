@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import NewsMainPageContainer from '../components/NewsMainPageContainer';
 import Footer from '../components/Footer';
 
-export default function Home({ posts }) {
+export default function Home({ posts, sliderPosts }) {
   return (
     <>
       <Head>
@@ -21,19 +21,22 @@ export default function Home({ posts }) {
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet" />
       </Head>
       <Header />
-      <NewsMainPageContainer posts={posts} />
+      <NewsMainPageContainer posts={posts} sliderPosts={sliderPosts} />
       <Footer />
     </>
   )
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch(`https://mubdmn-dev.crdps.xyz/wp-json/wp/v2/posts/`);
-  const posts = await res.json();
+  const resPost = await fetch(`https://mubdmn-dev.crdps.xyz/wp-json/wp/v2/posts?tags_exclude=17`);
+  const resSlider = await fetch(`https://mubdmn-dev.crdps.xyz/wp-json/wp/v2/posts?per_page=2&?tags=17`);
+  const posts = await resPost.json();
+  const sliderPosts = await resSlider.json();
   
   return {
     props: {
-      posts
+      posts,
+      sliderPosts
     }
   }
 
