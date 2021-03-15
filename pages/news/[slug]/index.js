@@ -18,13 +18,15 @@ const PostFeatureImage = styled.div`
 `
 
 const PostFeatureImageText = styled.div`
-  padding: 70px 5% 30px 5%;
+  padding: 70px 4% 30px 4%;
   position: absolute;
   bottom: 0;
-  min-width: 90%;
+  min-width: 92%;
   background-color: rgba(0,0,0,0);
   background-image: linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,1));
   @media (max-width: 768px) {
+    min-width: 90%;
+    padding: 70px 5% 30px 5%;
     h1{
       font-size: 28px;
     }
@@ -39,7 +41,7 @@ const PostFeatureImageCategoryButton = styled.div`
   padding: 10px 15px;
   position: absolute;
   top: 30px;
-  left: 5%;
+  left: 4%;
   border-radius: 4px;
   background-color: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.secondary};
@@ -50,13 +52,14 @@ const PostFeatureImageCategoryButton = styled.div`
   }
   @media (max-width: 768px) {
     top: 20px;
+    left: 5%;
     font-size: 12px;
   }
 `
 
 const PostText = styled.div`
-  width: 90%;
-  padding: 20px 5%;
+  width: 92%;
+  padding: 20px 4%;
   text-align: justify;
   figure {
     margin: 40px auto;
@@ -94,6 +97,7 @@ const PostText = styled.div`
     display: block;
   }
   @media (max-width: 768px) {
+    width: 90%;
     padding: 0 5%;
     figure {
       max-width: 85%;
