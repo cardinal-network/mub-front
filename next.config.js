@@ -1,5 +1,5 @@
 module.exports = {
     images: {
-        domains: ['exame.com'],
+        domains: ['mubdmn-dev.crdps.xyz'],
     },
 }
