@@ -12,8 +12,10 @@ const NewsCardArea = styled.div`
 
 const NewsCardImageArea = styled.div`
   width: 100%;
+  height: 200px;
+  display: block;
+  position: relative;
   img{
-    width: 100%;
     border-top-left-radius:6px;
     border-top-right-radius:6px;
   }
@@ -46,10 +48,10 @@ export default function NewsCard( { post } ) {
           <a href={`/news/${post.slug}`}>
             <NewsCardImageArea>
               <Image
-                src='https://exame.com/wp-content/uploads/2021/02/boeings-parados-em-aeroporto_reuters.jpg'
+                src={post.fimg_url}
                 alt={post.title.rendered}
-                width={600}
-                height={300}
+                layout="fill"
+                objectFit="cover"
               />
             </NewsCardImageArea>
             <NewsCardTextArea>

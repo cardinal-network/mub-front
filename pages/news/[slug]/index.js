@@ -10,6 +10,7 @@ import Breadcrumb from '../../../components/Breadcrumb'
 const PostFeatureImage = styled.div`
   display: block;
   position: relative;
+  height: 600px;
   img{
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
@@ -17,19 +18,18 @@ const PostFeatureImage = styled.div`
 `
 
 const PostFeatureImageText = styled.div`
-  padding: 70px 3% 30px 3%;
+  padding: 70px 5% 30px 5%;
   position: absolute;
-  bottom: 3px;
-  min-width: 94%;
+  bottom: 0;
+  min-width: 90%;
   background-color: rgba(0,0,0,0);
   background-image: linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,1));
   @media (max-width: 768px) {
-    position: relative;
-    padding: 25px 30px 0 30px;
-    background-image: none;
-    min-width: auto;
+    h1{
+      font-size: 28px;
+    }
     h2{
-      font-size: 15.5px;
+      font-size: 14px;
       color: #bbb;
     }
   }
@@ -39,7 +39,7 @@ const PostFeatureImageCategoryButton = styled.div`
   padding: 10px 15px;
   position: absolute;
   top: 30px;
-  left: 3%;
+  left: 5%;
   border-radius: 4px;
   background-color: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.secondary};
@@ -49,18 +49,14 @@ const PostFeatureImageCategoryButton = styled.div`
     color: ${({ theme }) => theme.colors.secondary};
   }
   @media (max-width: 768px) {
+    top: 20px;
     font-size: 12px;
-    left: 40px;
-  }
-  @media (max-width: 400px) {
-    top: 0;
-    left: 0;
-    border-radius: 0;
   }
 `
 
 const PostText = styled.div`
-  padding: 20px 40px;
+  width: 90%;
+  padding: 20px 5%;
   text-align: justify;
   figure {
     margin: 40px auto;
@@ -98,11 +94,7 @@ const PostText = styled.div`
     display: block;
   }
   @media (max-width: 768px) {
-    padding: 0;
-    width: 100%;
-    p{
-      padding: 0 30px;
-    }
+    padding: 0 5%;
     figure {
       max-width: 85%;
       img{
@@ -157,10 +149,10 @@ export default function post({ postData }) {
             <article>
               <PostFeatureImage>
                 <Image
-                  src='https://exame.com/wp-content/uploads/2021/02/boeings-parados-em-aeroporto_reuters.jpg'
+                  src={postData.fimg_url}
                   alt={postData.title.rendered}
-                  width={1440}
-                  height={650}
+                  layout="fill"
+                  objectFit="cover"
                 />
                 <PostFeatureImageCategoryButton><a href="/">Categoria</a></PostFeatureImageCategoryButton>
                 <PostFeatureImageText>
