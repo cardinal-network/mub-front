@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Link from 'next/link';
 import Image from 'next/image';
 
 const NewsCardArea = styled.div`
@@ -32,11 +31,13 @@ const NewsCardTextArea = styled.div`
   h3{
     margin-bottom:10px;
     font-size:12px;
+    font-weight: 500;
     color:#fff;
     padding: 20px 20px 0 20px;
   }
   h4{
     font-size:21px;
+    font-weight: 500;
     color:#fff;
     padding: 0 20px 20px 20px;
   }

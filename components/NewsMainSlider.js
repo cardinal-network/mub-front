@@ -1,116 +1,102 @@
 import styled from 'styled-components';
-import Link from 'next/link';
+import Image from 'next/image';
+import { H3, H4 } from '../components/Titles';
 
 const SliderArea = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 0 20px 0 0;
   padding: 0;
   background: #000;
   color:#fff;
-  flex:75%;
   min-height: 500px;
   border-radius:6px;
-  @media (max-width: 1100px){
-    margin: 0;
+  flex: 37.5%;
+  &:nth-child(1) {
+    img{
+      border-top-left-radius: 6px;
+      border-bottom-left-radius: 6px;
+    }
+  }
+  &:nth-child(2) {
+    img{
+      border-top-right-radius: 6px;
+      border-bottom-right-radius: 6px;
+    }
   }
   @media (max-width: 768px) {
-    flex-direction: column;
-    margin-top: 20px;
-  }
-`
-
-const SliderColumn = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex: 50%;
-  position: relative;
-  @media (min-width: 576px) and (max-width: 768px) {
-    flex: 100%;
-    flex-direction: row;
+    flex: 1;
+    width: 100%;
   }
 `
 
 const OverlayCard = styled.div`
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 500px;
   padding: 0;
-  display: flex;
-  align-items: flex-end;
-  min-height: ${props => `${props.minHeight}`}px;
-  background: url('${props => `${props.BackgroundImage}`}');
-  background-size: ${props => `${props.BackgroundSize}`};
-  border-top-left-radius: ${props => `${props.TopLeftRadius}`}px;
-  border-bottom-left-radius: ${props => `${props.BottomLeftRadius}`}px;
-  border-top-right-radius: ${props => `${props.TopRightRadius}`}px;
-  border-bottom-right-radius: ${props => `${props.BottomRightRadius}`}px;
 `
 
 const OverlayCardTitle = styled.div`
-  padding: 60px 35px 30px 35px;
-  position: relative;
-  z-index: 2;
+  padding: 70px 4% 30px 4%;
+  position: absolute;
+  bottom: 0;
+  min-width: 92%;
+  min-height: 110px;
   background-color: rgba(0,0,0,0);
-  background-image: linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,0.7));
-  h3{
-    margin-bottom:10px;
-    font-size:12px;
-    color:#fff;
-  }
-  h4{
-    font-size:21px;
-    color:#fff;
+  background-image: linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,1));
+  @media (max-width: 768px) {
+    min-width: 90%;
+    padding: 70px 5% 30px 5%;
+    h3{
+      font-size: 28px;
+    }
+    h4{
+      font-size: 14px;
+    }
   }
 `
 
-export default function NewsMainSlider() {
+const PostFeatureImageCategoryButton = styled.div`
+  padding: 10px 15px;
+  position: absolute;
+  top: 30px;
+  left: 4%;
+  border-radius: 4px;
+  background-color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.secondary};
+  font-size: 14px;
+  a{
+    font-weight: 700;
+    color: ${({ theme }) => theme.colors.secondary};
+  }
+  @media (max-width: 768px) {
+    top: 20px;
+    left: 5%;
+    font-size: 12px;
+  }
+`
+
+export default function NewsMainSlider({ sliderPost }) {
   return (
     <SliderArea>
-      <SliderColumn>
-        <OverlayCard 
-        minHeight={500}
-        BackgroundImage={'https://exame.com/wp-content/uploads/2021/02/nasa-perseverance-ilustracao.jpg'}
-        BackgroundSize={'100% 100%'}
-        TopLeftRadius={6} 
-        BottomLeftRadius={6} 
-        TopRightRadius={0} 
-        BottomRightRadius={0}
-        >
-          <OverlayCardTitle>
-            <h3>MERCADO DA MÚSICA</h3>
-            <h4>Country e R&B se combinam em novo e sensível álbum de Chris Stapleton</h4>
-          </OverlayCardTitle>
+      
+        <OverlayCard>
+          <a href={`/news/${sliderPost.slug}`}>
+            <Image
+              src={sliderPost.fimg_url}
+              alt={sliderPost.title.rendered}
+              layout="fill"
+              objectFit="cover"
+            />
+            <PostFeatureImageCategoryButton><a href="/">Categoria</a></PostFeatureImageCategoryButton>
+            <OverlayCardTitle>
+              <H3 fontSize={30} fontWeight={700} color={"#fff"} marginBottom={10}>{sliderPost.title.rendered}</H3>
+              <H4 fontSize={16} fontWeight={300} color={"#fff"} marginBottom={10}>{sliderPost.title.rendered}</H4>
+            </OverlayCardTitle>
+          </a>
         </OverlayCard>
-      </SliderColumn>
-      <SliderColumn>
-        <OverlayCard 
-        minHeight={250}
-        BackgroundImage={'https://exame.com/wp-content/uploads/2020/10/diversidade-inclusao-empresas.jpg'} 
-        BackgroundSize={'100%'}
-        TopLeftRadius={0} 
-        BottomLeftRadius={0} 
-        TopRightRadius={6} 
-        BottomRightRadius={0}
-        >
-          <OverlayCardTitle>
-            <h3>MERCADO DA MÚSICA</h3>
-            <h4>Country e R&B se combinam em novo e sensível álbum de Chris Stapleton</h4>
-          </OverlayCardTitle>
-        </OverlayCard>
-        <OverlayCard 
-        minHeight={250}
-        BackgroundImage={'https://exame.com/wp-content/uploads/2020/10/apple_nso-bangkok_ratchaprasong_07282020.jpg'} 
-        BackgroundSize={'100%'}
-        TopLeftRadius={0} 
-        BottomLeftRadius={0} 
-        TopRightRadius={0} 
-        BottomRightRadius={6}
-        >
-          <OverlayCardTitle>
-            <h3>MERCADO DA MÚSICA</h3>
-            <h4>Country e R&B se combinam em novo e sensível álbum de Chris Stapleton</h4>
-          </OverlayCardTitle>
-        </OverlayCard>
-      </SliderColumn>
     </SliderArea>
   )
 }

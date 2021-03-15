@@ -160,7 +160,7 @@ export default function post({ postData }) {
                 />
                 <PostFeatureImageCategoryButton><a href="/">Categoria</a></PostFeatureImageCategoryButton>
                 <PostFeatureImageText>
-                  <H1 dangerouslySetInnerHTML={{ __html: postData.title.rendered }} fontSize={32} fontWeight={700} color={"#fff"} marginBottom={10}/>
+                  <H1 dangerouslySetInnerHTML={{ __html: postData.title.rendered }} fontSize={32} fontWeight={500} color={"#fff"} marginBottom={10}/>
                   <H2 dangerouslySetInnerHTML={{ __html: postData.excerpt.rendered }} fontSize={18} fontWeight={400} color={"#fff"} marginBottom={15}/>
                   <Breadcrumb>
                     <li><a href="/">Home</a></li>
@@ -203,6 +203,6 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: 'blocking',
   }
 }

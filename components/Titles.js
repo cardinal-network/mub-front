@@ -21,3 +21,10 @@ export const H3 = styled.h3`
   font-weight: ${props => `${props.fontWeight}`};
   margin-bottom: ${props => `${props.marginBottom}`}px;
 `;
+
+export const H4 = styled.h4`
+  font-size: ${props => `${props.fontSize}`}px;
+  color: ${props => `${props.color}`};
+  font-weight: ${props => `${props.fontWeight}`};
+  margin-bottom: ${props => `${props.marginBottom}`}px;
+`;
