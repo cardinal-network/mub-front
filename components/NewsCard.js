@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import Image from 'next/image';
+import { H3, H4 } from '../components/Titles';
+import { categories } from '../data/categories';
 
 const NewsCardArea = styled.div`
   width: 100%;
@@ -14,6 +16,14 @@ const NewsCardImageArea = styled.div`
   height: 200px;
   display: block;
   position: relative;
+  background: #444;
+  border-top-left-radius:6px;
+  border-top-right-radius:6px;
+  animation: lazyAnimation 1s 10;
+  @keyframes lazyAnimation {
+    from {background-color: #444;}
+    to {background-color: #555;}
+  }
   img{
     border-top-left-radius:6px;
     border-top-right-radius:6px;
@@ -21,32 +31,25 @@ const NewsCardImageArea = styled.div`
 `
 
 const NewsCardTextArea = styled.div`
-  width:100%;
-  min-height: 145px;
+  width: 90%;
+  min-height: 170px;
   background:#333;
   color:#fff;
   border-bottom-left-radius:6px;
   border-bottom-right-radius:6px;
-  margin: -5px 0 0 0;
-  h3{
-    margin-bottom:10px;
-    font-size:12px;
-    font-weight: 500;
-    color:#fff;
-    padding: 20px 20px 0 20px;
-  }
-  h4{
-    font-size:21px;
-    font-weight: 500;
-    color:#fff;
-    padding: 0 20px 20px 20px;
+  padding: 20px 5% 5px 5%;
+  @media (max-width: 576px) {
+    min-height: auto;
+    padding: 20px 5%;
   }
 `
 
 export default function NewsCard( { post } ) {
+  const categoryId = post.categories;
+  const categoryFinder = categories.find(category => category.id === parseInt(categoryId));
   return (
     <NewsCardArea id='news-card'>
-          <a href={`/news/${post.slug}`}>
+          <a href={`/news/${categoryFinder.slug}/${post.slug}`}>
             <NewsCardImageArea>
               <Image
                 src={post.fimg_url}
@@ -56,8 +59,8 @@ export default function NewsCard( { post } ) {
               />
             </NewsCardImageArea>
             <NewsCardTextArea>
-              <h3>Categoria</h3>
-              <h4>{post.title.rendered}</h4>
+              <H4 fontSize={14} fontWeight={500} color={"#999"} marginBottom={10}>{categoryFinder.name}</H4>
+              <H3 fontSize={22} fontWeight={500} color={"#fff"} marginBottom={10}>{post.title.rendered}</H3>
             </NewsCardTextArea>
           </a>
     </NewsCardArea>

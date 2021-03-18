@@ -1,16 +1,21 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import { H3, H4 } from '../components/Titles';
+import { categories } from '../data/categories';
 
 const SliderArea = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 0;
-  background: #000;
+  background: #444;
+  animation: lazyAnimation 1s 10;
+  @keyframes lazyAnimation {
+    from {background-color: #444;}
+    to {background-color: #555;}
+  }
   color:#fff;
   min-height: 500px;
-  border-radius:6px;
   flex: 37.5%;
   &:nth-child(1) {
     img{
@@ -74,23 +79,23 @@ const PostFeatureImageCategoryButton = styled.div`
   @media (max-width: 768px) {
     top: 20px;
     left: 5%;
-    font-size: 12px;
   }
 `
 
 export default function NewsMainSlider({ sliderPost }) {
+  const categoryId = sliderPost.categories;
+  const categoryFinder = categories.find(category => category.id === parseInt(categoryId));
   return (
-    <SliderArea>
-      
+    <SliderArea> 
         <OverlayCard>
-          <a href={`/news/${sliderPost.slug}`}>
+          <a href={`/news/${categoryFinder.slug}/${sliderPost.slug}`}>
             <Image
               src={sliderPost.fimg_url}
               alt={sliderPost.title.rendered}
               layout="fill"
               objectFit="cover"
             />
-            <PostFeatureImageCategoryButton><a href="/">Categoria</a></PostFeatureImageCategoryButton>
+            <PostFeatureImageCategoryButton><a href={`/news/${categoryFinder.slug}`}>{categoryFinder.name}</a></PostFeatureImageCategoryButton>
             <OverlayCardTitle>
               <H3 fontSize={30} fontWeight={700} color={"#fff"} marginBottom={10}>{sliderPost.title.rendered}</H3>
               <H4 fontSize={16} fontWeight={300} color={"#fff"} marginBottom={10}>{sliderPost.title.rendered}</H4>
