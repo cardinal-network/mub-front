@@ -3,6 +3,7 @@ import Link from 'next/link';
 import PrimaryButton from '../components/PrimaryButton';
 import { Facebook, Instagram, PermIdentity, Search, Menu } from '@material-ui/icons';
 import Image from 'next/image';
+import { server } from '../config';
 
 const NavUl = styled.ul`
   display: flex;
@@ -57,12 +58,14 @@ export default function Nav() {
     <nav>
       <div className="container">
         <div className="row align-center">
-          <Image
-            src="/mub-music-logo.png"
-            alt="Mub Music Logo"
-            width={156}
-            height={30}
-          />
+          <a href={`${server}`}>
+            <Image
+              src="/mub-music-logo.png"
+              alt="Mub Music Logo"
+              width={156}
+              height={30}
+            />
+          </a>
           <NavUl>
             <NavLi><Link href='/'>Home</Link></NavLi>
             <NavLi>Categories

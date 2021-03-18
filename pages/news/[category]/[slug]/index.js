@@ -1,17 +1,31 @@
 import Head from 'next/head';
-import Header from '../../../components/Header';
-import Footer from '../../../components/Footer';
-import Link from 'next/link';
+import Header from '../../../../components/Header';
+import Footer from '../../../../components/Footer';
 import Image from 'next/image';
 import styled from 'styled-components';
-import { H1, H2, H3 } from '../../../components/Titles';
-import Breadcrumb from '../../../components/Breadcrumb'
+import { H1, H2 } from '../../../../components/Titles';
+import Breadcrumb from '../../../../components/Breadcrumb';
+import { categories } from '../../../../data/categories';
+import { server } from '../../../../config';
 
 const PostFeatureImage = styled.div`
   display: block;
   position: relative;
+  width: 100%;
+  max-width: 1406px;
   height: 600px;
+  background: #444;
+  border-top-left-radius:6px;
+  border-top-right-radius:6px;
+  animation: lazyAnimation 1s 10;
+  @keyframes lazyAnimation {
+    from {background-color: #444;}
+    to {background-color: #555;}
+  }
   img{
+    width: 100%;
+    max-width: 1406px;
+    position: relative;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
   }
@@ -61,13 +75,28 @@ const PostText = styled.div`
   width: 92%;
   padding: 20px 4%;
   text-align: justify;
+  img{
+    width: 100%;
+    height: auto;
+    max-width: 1290px;
+    position: relative;
+  }
   figure {
     margin: 40px auto;
+    width: 100%;
     img{
+      width: 100%;
+      height: auto;
+      max-width: 1290px;
+      position: relative;
       border-top-left-radius: 6px;
       border-top-right-radius: 6px;
     }
     figcaption {
+      width: 100%;
+      height: auto;
+      max-width: 1290px;
+      position: relative;
       margin: -4px 0 0 0;
       padding: 20px 0;
       background: #444;
@@ -130,6 +159,8 @@ const PostText = styled.div`
 `
 
 export default function post({ postData }) {
+  const categoryId = postData.categories;
+  const categoryFinder = categories.find(category => category.id === parseInt(categoryId));
   return (
     <>
       <Head>
@@ -158,13 +189,13 @@ export default function post({ postData }) {
                   layout="fill"
                   objectFit="cover"
                 />
-                <PostFeatureImageCategoryButton><a href="/">Categoria</a></PostFeatureImageCategoryButton>
+                <PostFeatureImageCategoryButton><a href={`${server}/news/${categoryFinder.slug}`}>{categoryFinder.name}</a></PostFeatureImageCategoryButton>
                 <PostFeatureImageText>
                   <H1 dangerouslySetInnerHTML={{ __html: postData.title.rendered }} fontSize={32} fontWeight={500} color={"#fff"} marginBottom={10}/>
                   <H2 dangerouslySetInnerHTML={{ __html: postData.excerpt.rendered }} fontSize={18} fontWeight={400} color={"#fff"} marginBottom={15}/>
                   <Breadcrumb>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/brasil">Music Bussines</a></li>
+                    <li><a href={`${server}`}>Home</a></li>
+                    <li><a href={`${server}/news/${categoryFinder.slug}`}>{categoryFinder.name}</a></li>
                     <li>{postData.title.rendered}</li>
                   </Breadcrumb>
                 </PostFeatureImageText>
@@ -191,15 +222,22 @@ export async function getStaticProps(context) {
       postData: postJson[0]
     }
   }
-
 }
 
 export async function getStaticPaths() {
-  const res = await fetch(`https://mubdmn-dev.crdps.xyz/wp-json/wp/v2/posts/`)
-  const posts = await res.json()
+  const res = await fetch(`https://mubdmn-dev.crdps.xyz/wp-json/wp/v2/posts/`);
+  const resCat = await fetch(`https://mubdmn-dev.crdps.xyz/wp-json/wp/v2/categories/`);
+  const posts = await res.json();
+  const cats = await resCat.json();
 
-  const slugs = posts.map((post) => post.slug)
-  const paths = slugs.map((slug) => ({ params: { slug: slug.toString() } }))
+  const paths = posts.map(post => {
+    const catSlug = cats.find(catArr => catArr.id === parseInt(post.categories));
+    return { 
+      params: {
+        category: catSlug.slug, slug: post.slug 
+      } 
+    };
+  });
 
   return {
     paths,

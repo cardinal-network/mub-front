@@ -36,6 +36,7 @@ const GlobalStyle = createGlobalStyle`
   }
   article{
     flex: 74%;
+    max-width: 1406px;
     background: #333;
     margin: 40px 1% 40px 0;
     border-radius: 6px;
