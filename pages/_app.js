@@ -36,7 +36,8 @@ const GlobalStyle = createGlobalStyle`
   }
   article{
     flex: 74%;
-    max-width: 1406px;
+    width: 74%;
+    position: relative;
     background: #333;
     margin: 40px 1% 40px 0;
     border-radius: 6px;
@@ -47,6 +48,8 @@ const GlobalStyle = createGlobalStyle`
   }
   aside{
     flex: 25%;
+    width: 25%;
+    position: relative;
     background: #333;
     margin: 40px 0;
     @media (max-width: 1100px){
