@@ -12,7 +12,6 @@ const PostFeatureImage = styled.div`
   display: block;
   position: relative;
   width: 100%;
-  max-width: 1406px;
   height: 600px;
   background: #444;
   border-top-left-radius:6px;
@@ -24,7 +23,6 @@ const PostFeatureImage = styled.div`
   }
   img{
     width: 100%;
-    max-width: 1406px;
     position: relative;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
@@ -83,7 +81,7 @@ const PostText = styled.div`
   }
   figure {
     margin: 40px auto;
-    width: 100%;
+    width: 100% !important;
     img{
       width: 100%;
       height: auto;
