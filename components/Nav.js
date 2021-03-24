@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Link from 'next/link';
 import PrimaryButton from '../components/PrimaryButton';
 import { Facebook, Instagram, PermIdentity, Search, Menu } from '@material-ui/icons';
 import Image from 'next/image';
@@ -60,29 +59,28 @@ export default function Nav() {
         <div className="row align-center">
           <a href={`${server}`}>
             <Image
-              src="/mub-music-logo.png"
+              src="/mub-music-logo-horizontal.png"
               alt="Mub Music Logo"
-              width={156}
-              height={30}
+              width={160}
+              height={24}
             />
           </a>
           <NavUl>
-            <NavLi><Link href='/'>Home</Link></NavLi>
-            <NavLi>Categories
+            <NavLi><a href='/'>Home</a></NavLi>
+            <NavLi><a href='/categories'>Categories</a>
               <NavUlDropDown>
-                <li><Link href='/'>Cat1</Link></li>
-                <li><Link href='/'>Cat2</Link></li>
-                <li><Link href='/'>Cat3</Link></li>
-                <li><Link href='/'>Cat4</Link></li>
+                <li><a href='/'>Cat1</a></li>
+                <li><a href='/'>Cat2</a></li>
+                <li><a href='/'>Cat3</a></li>
+                <li><a href='/'>Cat4</a></li>
               </NavUlDropDown>
             </NavLi>
-            <NavLi><Link href='/news'>News</Link></NavLi>
-            <NavLi><Link href='/signin'><PermIdentity/></Link></NavLi>
-            <NavLi><Link href='/'><Search/></Link></NavLi>
-            <NavLi><Link href='/signup'><PrimaryButton>Sign Up</PrimaryButton></Link></NavLi>
-            <NavLi><Link href='https://www.facebook.com/'><Facebook/></Link></NavLi>
-            <NavLi><Link href='https://www.instagram.com/'><Instagram/></Link></NavLi>
-            <NavLiMobileMenuIcon><Link href='/'><Menu/></Link></NavLiMobileMenuIcon>
+            <NavLi><a href='/signin'><PermIdentity/></a></NavLi>
+            <NavLi><a href='/'><Search/></a></NavLi>
+            <NavLi><a href='/signup'><PrimaryButton>Sign Up</PrimaryButton></a></NavLi>
+            <NavLi><a href='https://www.facebook.com/'><Facebook/></a></NavLi>
+            <NavLi><a href='https://www.instagram.com/'><Instagram/></a></NavLi>
+            <NavLiMobileMenuIcon><a href='/'><Menu/></a></NavLiMobileMenuIcon>
           </NavUl>
         </div>
       </div>

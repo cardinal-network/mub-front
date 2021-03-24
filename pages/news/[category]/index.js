@@ -4,7 +4,7 @@ import Footer from '../../../components/Footer';
 import styled from 'styled-components';
 import { H1 } from '../../../components/Titles';
 import NewsCard from '../../../components/NewsCard';
-import { categories } from '../../../data/categories';
+import { categories } from '../../../data/newsCategories';
 
 const CategoryListAreaTitleContainer = styled.div`
     flex: 1;
