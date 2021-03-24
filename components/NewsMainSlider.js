@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import { H3, H4 } from '../components/Titles';
-import { categories } from '../data/categories';
+import { categories } from '../data/newsCategories';
 
 const SliderArea = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 0;
-  background: #444;
   animation: lazyAnimation 1s 10;
   @keyframes lazyAnimation {
     from {background-color: #444;}
@@ -17,18 +16,6 @@ const SliderArea = styled.div`
   color:#fff;
   min-height: 500px;
   flex: 37.5%;
-  &:nth-child(1) {
-    img{
-      border-top-left-radius: 6px;
-      border-bottom-left-radius: 6px;
-    }
-  }
-  &:nth-child(2) {
-    img{
-      border-top-right-radius: 6px;
-      border-bottom-right-radius: 6px;
-    }
-  }
   @media (max-width: 768px) {
     flex: 1;
     width: 100%;

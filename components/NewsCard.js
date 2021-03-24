@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import { H3, H4 } from '../components/Titles';
-import { categories } from '../data/categories';
+import { categories } from '../data/newsCategories';
 
 const NewsCardArea = styled.div`
   width: 100%;
@@ -32,7 +32,7 @@ const NewsCardImageArea = styled.div`
 
 const NewsCardTextArea = styled.div`
   width: 90%;
-  min-height: 170px;
+  min-height: 150px;
   background:#333;
   color:#fff;
   border-bottom-left-radius:6px;

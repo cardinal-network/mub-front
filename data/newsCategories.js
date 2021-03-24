@@ -3,37 +3,37 @@ export const categories = [
         "id": 1,
         "name": "Articles",
         "slug": "articles",
-        "taxonomy": "category"
+        "thumbnail": "news_cathumb_articles.jpg"
     },
     {
         "id": 6,
         "name": "Lifestyle",
         "slug": "lifestyle",
-        "taxonomy": "category"
+        "thumbnail": "news_cathumb_lifestyle.jpg"
     },
     {
         "id": 5,
         "name": "Music Business",
         "slug": "music-business",
-        "taxonomy": "category"
+        "thumbnail": "news_cathumb_music-business.jpg"
     },
     {
         "id": 4,
         "name": "Music History",
         "slug": "music-history",
-        "taxonomy": "category",
+        "thumbnail": "news_cathumb_music-history.jpg",
     },
     {
         "id": 7,
         "name": "People",
         "slug": "people",
-        "taxonomy": "category",
+        "thumbnail": "news_cathumb_people.jpg",
     },
     {
         "id": 8,
         "name": "Releases",
         "slug": "releases",
-        "taxonomy": "category",
+        "thumbnail": "news_cathumb_releases.jpg",
     }
 ]
 export default categories

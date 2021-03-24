@@ -5,7 +5,7 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import { H1, H2 } from '../../../../components/Titles';
 import Breadcrumb from '../../../../components/Breadcrumb';
-import { categories } from '../../../../data/categories';
+import { categories } from '../../../../data/newsCategories';
 import { server } from '../../../../config';
 
 const PostFeatureImage = styled.div`
@@ -81,7 +81,7 @@ const PostText = styled.div`
   }
   figure {
     margin: 40px auto;
-    width: 100% !important;
+    max-width: 100%;
     img{
       width: 100%;
       height: auto;
