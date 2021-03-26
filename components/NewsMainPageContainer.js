@@ -21,6 +21,15 @@ const SliderContainer = styled.div`
   }
 `
 
+const AdHomeContainer = styled.div`
+  width: 100%;
+  height: 200px;
+  margin: 50px 0 35px 0;
+  padding: 10px;
+  background: #333;
+  position: relative;
+`
+
 export default function NewsMainPageContainer({ posts, sliderPosts }) {
   return (
     <main>
@@ -34,6 +43,14 @@ export default function NewsMainPageContainer({ posts, sliderPosts }) {
             )}
           </SliderContainer>
           <AdContainer Height={480} margins={0} />
+        </div>
+        <div className="row">
+          <AdHomeContainer id="div-home-cabecalho-1-btf-728x90" dangerouslySetInnerHTML={{
+                __html: `
+                <script>googletag.cmd.push(function() { googletag.display('div-home-cabecalho-1-btf-728x90'); });</script>
+                `
+              }} 
+          />
         </div>
         <div className="row">
           <div className="grid-mansonry">
