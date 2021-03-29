@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import PrimaryButton from '../components/PrimaryButton';
-import { Facebook, Instagram, PermIdentity, Search, Menu } from '@material-ui/icons';
+import { Instagram, PermIdentity, Search, Menu } from '@material-ui/icons';
 import Image from 'next/image';
 import { server } from '../config';
 
@@ -59,10 +59,10 @@ export default function Nav() {
         <div className="row align-center">
           <a href={`${server}`}>
             <Image
-              src="/mub-music-logo-horizontal.png"
+              src="/mub-logo-icon.png"
               alt="Mub Music Logo"
-              width={160}
-              height={24}
+              width={33}
+              height={36}
             />
           </a>
           <NavUl>
@@ -78,7 +78,6 @@ export default function Nav() {
             <NavLi><a href='/signin'><PermIdentity/></a></NavLi>
             <NavLi><a href='/'><Search/></a></NavLi>
             <NavLi><a href='/signup'><PrimaryButton>Sign Up</PrimaryButton></a></NavLi>
-            <NavLi><a href='https://www.facebook.com/'><Facebook/></a></NavLi>
             <NavLi><a href='https://www.instagram.com/'><Instagram/></a></NavLi>
             <NavLiMobileMenuIcon><a href='/'><Menu/></a></NavLiMobileMenuIcon>
           </NavUl>

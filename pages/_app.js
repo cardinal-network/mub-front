@@ -50,8 +50,6 @@ const GlobalStyle = createGlobalStyle`
     flex: 25%;
     width: 25%;
     position: relative;
-    background: #333;
-    margin: 40px 0;
     @media (max-width: 1100px){
       display: none;
     }
@@ -61,10 +59,15 @@ const GlobalStyle = createGlobalStyle`
   }
   footer{
     background: #333;
-    min-height: 470px;
     margin: 40px 0 0 0;
-    padding: 40px 0 0 0;
+    padding: 40px 0 30px 0;
     position: relative;
+    a {
+      color:#fff;
+      &:hover {
+        color: #F5B100;
+      }
+    }
   }
   .align-center{
     align-items: center;

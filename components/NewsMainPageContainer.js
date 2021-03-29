@@ -21,6 +21,15 @@ const SliderContainer = styled.div`
   }
 `
 
+const AdHomeContainer = styled.div`
+  width: 100%;
+  height: 200px;
+  margin: 50px 0 35px 0;
+  padding: 10px;
+  background: #333;
+  position: relative;
+`
+
 export default function NewsMainPageContainer({ posts, sliderPosts }) {
   return (
     <main>
@@ -33,7 +42,9 @@ export default function NewsMainPageContainer({ posts, sliderPosts }) {
                 )
             )}
           </SliderContainer>
-          <AdContainer Height={480} margins={0} />
+          <aside>
+            <AdContainer Height={480} margins={0} />
+          </aside>
         </div>
         <div className="row">
           <div className="grid-mansonry">
@@ -42,7 +53,9 @@ export default function NewsMainPageContainer({ posts, sliderPosts }) {
               )
             )}
           </div>
-          <AdContainer Height={600} margins={"20px 0 0 0"} />
+          <aside>
+            <AdContainer Height={480} margins={"20px 0"} />
+          </aside>
         </div>
       </div>
     </main>
