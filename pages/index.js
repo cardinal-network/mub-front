@@ -12,7 +12,7 @@ export default function Home({ posts, sliderPosts }) {
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Mub Music | The World's biggest music catalog" key="title" />
         <meta property="og:description" content="The World's biggest music catalog" />
-        <script async='async' src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+        <script src="https://www.googletagservices.com/tag/js/gpt.js"></script>
         <script async='async' type="text/javascript" src="https://exame.com/wp-content/themes/exame-new/js/prebid.min.js?v-abrad=7.68"></script>
         <script 
         dangerouslySetInnerHTML={{ 
