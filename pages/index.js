@@ -41,7 +41,7 @@ export default function Home({ posts, sliderPosts }) {
                       .addSize([0, 0], [[320, 50],[320,100],[300,50],[300,100]]) // mobile sizes
                       .addSize([980, 200], []) // desktop sizes, empty array will not request the ad on this device
                       .build(); 
-              googletag.defineSlot('/22033231199/exame/home', [[336,280]], 'div-home-cabecalho-1-btf-728x90').defineSizeMapping(mapping2).setTargeting(REFRESH_KEY,REFRESH_VALUE).setTargeting('refreshed_slot', 'false').addService(googletag.pubads());
+              googletag.defineSlot('${({ theme }) => theme.ads.network}/exame/home', [[336,280]], 'div-home-cabecalho-1-btf-728x90').defineSizeMapping(mapping2).setTargeting(REFRESH_KEY,REFRESH_VALUE).setTargeting('refreshed_slot', 'false').addService(googletag.pubads());
               
               var SECONDS_TO_WAIT_AFTER_VIEWABILITY = 30;
               googletag.pubads().addEventListener('impressionViewable', function(event) {
