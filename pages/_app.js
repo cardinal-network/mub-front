@@ -126,6 +126,9 @@ const theme = {
     shadow_1: '#999',
     light_1: '#FFC819'
   },
+  ads: {
+    network: '/22033231199',
+  },
 }
 
 export default function App({ Component, pageProps }) {

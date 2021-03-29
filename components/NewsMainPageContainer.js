@@ -47,6 +47,14 @@ export default function NewsMainPageContainer({ posts, sliderPosts }) {
           </aside>
         </div>
         <div className="row">
+          <AdHomeContainer id="div-home-cabecalho-1-btf-728x90" dangerouslySetInnerHTML={{
+                __html: `
+                <script>googletag.cmd.push(function() { googletag.display('div-home-cabecalho-1-btf-728x90'); });</script>
+                `
+              }} 
+          />
+        </div>
+        <div className="row">
           <div className="grid-mansonry">
             {posts.map((post) => (
                 <NewsCard post={post} key={post}/>
