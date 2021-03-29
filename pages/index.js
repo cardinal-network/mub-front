@@ -26,6 +26,7 @@ export default function Home({ posts, sliderPosts }) {
 
             var pbjs = window.pbjs || {};
             pbjs.que = pbjs.que || [];
+            
 
             var customData = window.customData || {};
             customData.tag = customData.tag || [];
@@ -59,7 +60,7 @@ export default function Home({ posts, sliderPosts }) {
                     timeout: PREBID_TIMEOUT
                 });
             });
-            
+
             function initAdserver() {
                 if (pbjs.initAdserverSet) return;
                 pbjs.initAdserverSet = true;
