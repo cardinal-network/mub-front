@@ -15,17 +15,63 @@ export default function Home({ posts, sliderPosts }) {
         <script async='async' src="https://www.googletagservices.com/tag/js/gpt.js"></script>
         <script async='async' type="text/javascript" src="https://exame.com/wp-content/themes/exame-new/js/prebid.min.js"></script>
         <script 
-        dangerouslySetInnerHTML={{ 
+          dangerouslySetInnerHTML={{ 
             __html: `
-            const ADSNETWORK = '/22033231199';
-            var googletag = googletag || {};
+            const PREBID_TIMEOUT = 1500;
+            const FAILSAFE_TIMEOUT = 3000;
+
+            const googletag = googletag || {};
             googletag.cmd = googletag.cmd || [];
-            var pbjs = window.pbjs || {};
+
+            const pbjs = window.pbjs || {};
             pbjs.que = pbjs.que || [];
-            var customData = window.customData || {};
+
+            const customData = window.customData || {};
             customData.tag = customData.tag || [];
             const WEBSITE = customData['website'];
             const SECTION = customData['section'];
+
+            const adUnits = [{
+              code: '/22033231199/exame/home',
+              mediaTypes: {
+                  banner: {
+                      sizes: [[1300, 250], [980, 200], [970, 90], [728, 90]]
+                  }
+              },
+              bids: [{
+                  bidder: 'onemobile',
+                  params: {
+                      dcn: '8a9690d401757594a67098b28abb005e',
+                      pos: 'exame_desktop_billboard'
+                  }
+              }]
+            }];
+
+            googletag.cmd.push(function() {
+              googletag.pubads().disableInitialLoad();
+            });
+
+            pbjs.que.push(function() {
+                pbjs.addAdUnits(adUnits);
+                pbjs.requestBids({
+                    bidsBackHandler: initAdserver,
+                    timeout: PREBID_TIMEOUT
+                });
+            });
+
+            function initAdserver() {
+                if (pbjs.initAdserverSet) return;
+                pbjs.initAdserverSet = true;
+                googletag.cmd.push(function() {
+                    pbjs.setTargetingForGPTAsync && pbjs.setTargetingForGPTAsync();
+                    googletag.pubads().refresh();
+                });
+            }
+            
+            setTimeout(function() {
+                initAdserver();
+            }, FAILSAFE_TIMEOUT);
+
             googletag.cmd.push(function() {
               var REFRESH_KEY = 'refresh';
               var REFRESH_VALUE = 'true';
