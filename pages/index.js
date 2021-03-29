@@ -7,14 +7,11 @@ export default function Home({ posts, sliderPosts }) {
   return (
     <>
       <Head>
-        <meta name="viewport" content="width-device-width, initial-scale=1.0" />
+        <title>Mub Music | The World's biggest music catalog</title>
+        <meta name="description" content="The World's biggest music catalog" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://mubmusic.com/" />
-        <meta property="og:site_name" content="Mub Music" />
-        <meta property="og:image" content="https://s0.wp.com/i/blank.jpg" />
-        <meta property="og:locale" content="en" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet" />
+        <meta property="og:title" content="Mub Music | The World's biggest music catalog" key="title" />
+        <meta property="og:description" content="The World's biggest music catalog" />
       </Head>
       <Header />
       <NewsMainPageContainer posts={posts} sliderPosts={sliderPosts} />

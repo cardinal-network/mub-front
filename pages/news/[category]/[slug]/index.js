@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { H1, H2 } from '../../../../components/Titles';
 import Breadcrumb from '../../../../components/Breadcrumb';
 import { categories } from '../../../../data/newsCategories';
+import AdContainer from '../../../../components/AdContainer';
 import { server } from '../../../../config';
 
 const PostFeatureImage = styled.div`
@@ -30,7 +31,7 @@ const PostFeatureImage = styled.div`
 `
 
 const PostFeatureImageText = styled.div`
-  padding: 70px 4% 30px 4%;
+  padding: 70px 4.1% 30px 4%;
   position: absolute;
   bottom: 0;
   min-width: 92%;
@@ -195,7 +196,9 @@ export default function post({ postData }) {
                 <PostText dangerouslySetInnerHTML={{ __html: postData.content.rendered }}/>
               </div>
             </article>
-            <aside>AAA BBB CCC</aside>
+            <aside>
+              <AdContainer Height={600} margins={"40px 0 0 0"} />
+            </aside>
           </div>
         </div>
       </main>

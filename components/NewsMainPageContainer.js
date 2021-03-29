@@ -42,7 +42,9 @@ export default function NewsMainPageContainer({ posts, sliderPosts }) {
                 )
             )}
           </SliderContainer>
-          <AdContainer Height={480} margins={0} />
+          <aside>
+            <AdContainer Height={480} margins={0} />
+          </aside>
         </div>
         <div className="row">
           <div className="grid-mansonry">
@@ -51,7 +53,9 @@ export default function NewsMainPageContainer({ posts, sliderPosts }) {
               )
             )}
           </div>
-          <AdContainer Height={600} margins={"20px 0 0 0"} />
+          <aside>
+            <AdContainer Height={480} margins={"20px 0"} />
+          </aside>
         </div>
       </div>
     </main>

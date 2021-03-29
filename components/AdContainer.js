@@ -3,11 +3,11 @@ import styled from 'styled-components'
 const AdContainer = styled.div`
   background: ${({ theme }) => theme.colors.tertiary};
   color: ${({ theme }) => theme.colors.shadow_1};
-  width: 25%;
+  width: 100%;
   height: ${props => `${props.Height}`}px;
   border-radius: 6px;
   margin: ${props => `${props.margins}`};
-  padding: 10px;
+  padding: 10px 0;
   text-align:center;
   &::before {
     content: "ADVERTISEMENT";

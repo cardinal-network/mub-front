@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { H1 } from '../../../components/Titles';
 import NewsCard from '../../../components/NewsCard';
 import { categories } from '../../../data/newsCategories';
+import AdContainer from '../../../components/AdContainer';
 
 const CategoryListAreaTitleContainer = styled.div`
     flex: 1;
@@ -71,7 +72,9 @@ export default function categoryPage({ catData, catName }) {
                             )}
                         </CategoryListAreaGrid>
                     </CategoryListAreaContainer>
-                    <aside>AAA BBB CCC</aside>
+                    <aside>
+                        <AdContainer Height={600} margins={"0"} />
+                    </aside>
                 </div>
             </div>
         </main>
