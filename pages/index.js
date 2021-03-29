@@ -12,7 +12,7 @@ export default function Home({ posts, sliderPosts }) {
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Mub Music | The World's biggest music catalog" key="title" />
         <meta property="og:description" content="The World's biggest music catalog" />
-        <script src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+        <script async='async' src="https://www.googletagservices.com/tag/js/gpt.js"></script>
         <script async='async' type="text/javascript" src="https://exame.com/wp-content/themes/exame-new/js/prebid.min.js?v-abrad=7.68"></script>
         <script 
         dangerouslySetInnerHTML={{ 
@@ -32,7 +32,7 @@ export default function Home({ posts, sliderPosts }) {
             const SECTION = customData['section'];
 
             const adUnits = [{
-              code: '${({ theme }) => theme.ads.network}/exame/home',
+              code: '/22033231199/exame/home',
               mediaTypes: {
                   banner: {
                       sizes: [[1300, 250], [980, 200], [970, 90], [728, 90]]
@@ -87,7 +87,7 @@ export default function Home({ posts, sliderPosts }) {
                       .addSize([0, 0], [[320, 50],[320,100],[300,50],[300,100]]) // mobile sizes
                       .addSize([980, 200], []) // desktop sizes, empty array will not request the ad on this device
                       .build(); 
-              googletag.defineSlot('${({ theme }) => theme.ads.network}/exame/home', [[336,280]], 'div-home-cabecalho-1-btf-728x90').defineSizeMapping(mapping2).setTargeting(REFRESH_KEY,REFRESH_VALUE).setTargeting('refreshed_slot', 'false').addService(googletag.pubads());
+              googletag.defineSlot('/22033231199/exame/home', [[336,280]], 'div-home-cabecalho-1-btf-728x90').defineSizeMapping(mapping2).setTargeting(REFRESH_KEY,REFRESH_VALUE).setTargeting('refreshed_slot', 'false').addService(googletag.pubads());
               
               var SECONDS_TO_WAIT_AFTER_VIEWABILITY = 30;
               googletag.pubads().addEventListener('impressionViewable', function(event) {
