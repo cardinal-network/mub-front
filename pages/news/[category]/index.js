@@ -92,9 +92,9 @@ export async function getStaticProps(context) {
     return {
         props: {
             catData: catJson,
-            catName: catName,
-            revalidate: 60
-        }
+            catName: catName
+        },
+        revalidate: 60
     }
 }
   
