@@ -2,6 +2,7 @@ import NewsNav from '../components/NewsNav';
 import NewsMainSlider from '../components/NewsMainSlider';
 import AdContainer from './AdContainer';
 import NewsCard from '../components/NewsCard';
+import XSlider from './Slider';
 import styled from 'styled-components';
 
 const SliderContainer = styled.div`
