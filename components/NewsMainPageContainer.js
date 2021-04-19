@@ -2,6 +2,7 @@ import NewsNav from '../components/NewsNav';
 import NewsMainSlider from '../components/NewsMainSlider';
 import AdContainer from './AdContainer';
 import NewsCard from '../components/NewsCard';
+import XSlider from './Slider';
 import styled from 'styled-components';
 
 const SliderContainer = styled.div`
@@ -45,9 +46,6 @@ export default function NewsMainPageContainer({ posts, sliderPosts }) {
           <aside>
             <AdContainer Height={480} margins={0} />
           </aside>
-        </div>
-        <div className="row">
-          
         </div>
         <div className="row">
           <div className="grid-mansonry">
