@@ -90,10 +90,10 @@ export async function getStaticProps(context) {
     const catName = `${categoryFinder.name}`;
 
     return {
+        revalidate: 60,
         props: {
             catData: catJson,
-            catName: catName,
-            revalidate: 60
+            catName: catName
         }
     }
 }
