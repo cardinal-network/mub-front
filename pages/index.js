@@ -27,10 +27,10 @@ export const getStaticProps = async () => {
   const sliderPosts = await resSlider.json();
   
   return {
+    revalidate: 60,
     props: {
       posts,
       sliderPosts
-    },
-    revalidate: 60
+    }
   }
 }

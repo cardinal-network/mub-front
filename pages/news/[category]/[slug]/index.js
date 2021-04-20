@@ -212,10 +212,10 @@ export async function getStaticProps(context) {
   const postJson = await res.json();
   
   return {
+    revalidate: 60,
     props: {
       postData: postJson[0],
-    },
-    revalidate: 60
+    }
   }
 }
 
