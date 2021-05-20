@@ -134,12 +134,10 @@ const theme = {
 export default function App({ Component, pageProps }) {
   return (
     <>
-      <html lang="en">
-        <GlobalStyle />
-        <ThemeProvider theme={theme}>
-          <Component {...pageProps} />
-        </ThemeProvider>
-      </html>
+      <GlobalStyle />
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   )
 }

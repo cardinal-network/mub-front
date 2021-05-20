@@ -29,20 +29,20 @@ const CategoryListAreaGrid = styled.div`
     column-count: 3;
     column-gap: 1em;
     @media (min-width: 1100px) and (max-width: 1360px) {
-    column-count: 2;
-    flex: 75%;
+        column-count: 2;
+        flex: 75%;
     }
     @media (min-width: 768px) and (max-width: 1100px) {
-    column-count: 3;
-    flex: 100%;
+        column-count: 3;
+        flex: 100%;
     }
     @media (min-width: 576px) and (max-width: 768px) {
-    column-count: 2;
-    flex: 100%;
+        column-count: 2;
+        flex: 100%;
     }
     @media (max-width: 576px) {
-    column-count: 1;
-    flex: 100%;
+        column-count: 1;
+        flex: 100%;
     }
 `
 
