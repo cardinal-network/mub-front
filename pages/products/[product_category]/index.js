@@ -1,4 +1,6 @@
+import React, {useState} from 'react';
 import Head from 'next/head';
+import dynamic from "next/dynamic";
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
 import styled from 'styled-components';
@@ -46,86 +48,67 @@ const ProductListAreaGrid = styled.div`
     }
 `
 
-export default function productIndexPage({ prodCatData, prodData, prodSubCatData }) {
-  return (
-    <>
-        <Head>
-            <title>{ prodCatData.title.rendered } | Mub Music</title>
-            <meta name="description" content="The World's biggest music catalog" />
-            <meta property="og:title" content="Mub Music | The World's biggest music catalog" key="title" />
-            <meta property="og:description" content="The World's biggest music catalog. ➤ Musical products, Musical Instruments, Music News. ➤ Get in and find your sound!" />
-        </Head>
-        <Header />
-        <main>
-            <div className="container">
-                <div className="row">
-                    <Aside margins={"40px 0 0 0"}>
-                        <AdContainer Height={250} margins={"0"} />
-                        <CollapseSideMenu Height={400} margins={"20px 0"}>
-                            <button>Subcategories</button>
-                            <ul>
-                                {prodSubCatData.map((prodSubCatDataItem) => (
-                                    <li key={prodSubCatDataItem.id}>
-                                        <input type="radio" id={prodSubCatDataItem.id} name={prodSubCatDataItem.slug} value={prodSubCatDataItem.slug} />
-                                        <label for={prodSubCatDataItem.title}>{prodSubCatDataItem.title} ({prodSubCatDataItem.count})</label>
-                                    </li>
-                                )
-                                )}
-                            </ul>
-                        </CollapseSideMenu>
-                    </Aside>
-                    <ProductListAreaContainer>
-                        <ProductListAreaTitleContainer>
-                            <H1 fontSize={24} fontWeight={700} color={"#fff"} marginBottom={0}>{ prodCatData.title.rendered }</H1>
-                        </ProductListAreaTitleContainer>
-                        <ProductListAreaGrid>
-                                {prodData.map((prodDataItem) => (
-                                    <div key={prodDataItem.id}>{prodDataItem.title.rendered}</div>
-                                )
-                                )}
-                        </ProductListAreaGrid>
-                    </ProductListAreaContainer>
+export default function productIndexPage({ prodCatData, prodData, prodSubCatData, prodBrandData, prodPriceAverageData }) {
+    const [brandsArea, setBrandsArea] = useState(false);
+    const DynamicBrandsArea = dynamic(() => import("../../../components/CollapseSideMenu"));
+    return (
+        <>
+            <Head>
+                <title>{ prodCatData.title.rendered } | Mub Music</title>
+                <meta name="description" content="The World's biggest music catalog" />
+                <meta property="og:title" content="Mub Music | The World's biggest music catalog" key="title" />
+                <meta property="og:description" content="The World's biggest music catalog. ➤ Musical products, Musical Instruments, Music News. ➤ Get in and find your sound!" />
+            </Head>
+            <Header />
+            <main>
+                <div className="container">
+                    <div className="row">
+                        <Aside margins={"40px 0 0 0"}>
+                            <AdContainer Height={250} margins={"0"} />
+                            <CollapseSideMenu title={"Subcategories"} data={prodSubCatData} />
+                            <CollapseSideMenu title={"Brands"} data={prodBrandData} />
+                            <CollapseSideMenu title={"Price"} data={prodPriceAverageData} />
+                        </Aside>
+                        <ProductListAreaContainer>
+                            <ProductListAreaTitleContainer>
+                                <H1 fontSize={24} fontWeight={700} color={"#fff"} marginBottom={0}>{ prodCatData.title.rendered }</H1>
+                            </ProductListAreaTitleContainer>
+                            <ProductListAreaGrid>
+                                    {prodData.map((prodDataItem) => (
+                                        <div key={prodDataItem.id}>{prodDataItem.title.rendered}</div>
+                                    )
+                                    )}
+                            </ProductListAreaGrid>
+                        </ProductListAreaContainer>
+                    </div>
                 </div>
-            </div>
-        </main>
-        <Footer />
-    </>
-  )
+            </main>
+            <Footer />
+        </>
+    )
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
     const resProdCat = await fetch(`https://mubdmn-dev.crdps.xyz/wp-json/wp/v2/product_category?slug=${context.params.product_category}`);
     const prodCatJson = await resProdCat.json();
+    
     const resProd = await fetch(`https://mubdmn-dev.crdps.xyz/wp-json/wp/v2/products?category_id=${prodCatJson[0].id}`);
     const resProdSubCat = await fetch(`https://mubdmn-dev.crdps.xyz/sbc-lc/?ct=${prodCatJson[0].id}`);
+    const resProdBrand = await fetch(`https://mubdmn-dev.crdps.xyz/brd-lc/?ct=${prodCatJson[0].id}`);
+    const resProdPriceAverage = await fetch(`https://mubdmn-dev.crdps.xyz/prvg-lc/?ct=${prodCatJson[0].id}`);
+
     const prodJson = await resProd.json();
     const prodSubCatJson = await resProdSubCat.json();
-    console.log("SUBCATS:", prodSubCatJson);
+    const prodBrandJson = await resProdBrand.json();
+    const prodPriceAverageJson = await resProdPriceAverage.json();
 
     return {
-        revalidate: 60,
         props: {
             prodCatData: prodCatJson[0],
             prodData: prodJson,
-            prodSubCatData: prodSubCatJson
+            prodSubCatData: prodSubCatJson,
+            prodBrandData: prodBrandJson,
+            prodPriceAverageData: prodPriceAverageJson
         }
-    }
-}
-  
-export async function getStaticPaths() {
-    const resProdCat = await fetch(`https://mubdmn-dev.crdps.xyz/wp-json/wp/v2/product_category/`);
-    const prodCats = await resProdCat.json();
-  
-    const paths = prodCats.map(prodCat => {
-        return { 
-            params: {
-                product_category: prodCat.slug
-            } 
-        };
-    });
-
-    return {
-        paths,
-        fallback: 'blocking',
     }
 }

@@ -1,12 +1,12 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-const CollapseSideMenu = styled.div`
+const CollapseSideMenuWrapper = styled.div`
   background: ${({ theme }) => theme.colors.tertiary};
   color: ${({ theme }) => theme.colors.shadow_1};
   width: 100%;
-  height: ${props => `${props.Height}`}px;
+  height: 400px;
   border-radius: 6px;
-  margin: ${props => `${props.margins}`};
+  margin: 20px 0;
   padding: 0 0 10px 0;
   text-align:center;
   button{
@@ -41,4 +41,22 @@ const CollapseSideMenu = styled.div`
   }
 `;
 
-export default CollapseSideMenu;
+export default function CollapseSideMenu(props) {
+  const {title, data} = props;
+  return (
+    <CollapseSideMenuWrapper>
+        <button>{title}</button>
+        {data ? 
+        <ul>
+          {data.map((prodSubCatDataItem) => (
+              <li key={prodSubCatDataItem.id}>
+                  <input type="radio" id={prodSubCatDataItem.id} name={prodSubCatDataItem.slug} value={prodSubCatDataItem.slug} />
+                  <label for={prodSubCatDataItem.title}>{prodSubCatDataItem.title} ({prodSubCatDataItem.count})</label>
+              </li>
+          )
+          )}
+        </ul>
+        : ''}
+    </CollapseSideMenuWrapper>
+  )
+}
